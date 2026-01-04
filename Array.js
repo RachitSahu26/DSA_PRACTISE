@@ -165,7 +165,7 @@ console.log(shiftAllZeros([3, 4, 6, 0, 6, 0, 3, 86, 0, 98])) */
 // let result = findSecondLargest(demoArray);
 // console.log(result);
 
-//4. if array has only one element  then then how will you handle it and find seocnd largest
+//4. if array has only one element  then  how will you handle it and find seocnd largest
 
 // function findSecondLargest(arr) {
 
@@ -201,17 +201,37 @@ console.log(shiftAllZeros([3, 4, 6, 0, 6, 0, 3, 86, 0, 98])) */
 
 
 
-function dublicateArr(nums) {
-    let x = 0;
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] > nums[x]) {
-            x = x + 1;
-            nums[x] = nums[i]
-        }
+// function dublicateArr(nums) {
+//     let x = 0;
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] > nums[x]) {
+//             x = x + 1;
+//             nums[x] = nums[i]
+//         }
+//     }
+//     return x + 1;
+// }
+
+// let arr = [1, 1, 1, 2, 2, 3, , 4, 5, 7, 7]
+// let result = dublicateArr(arr)
+// console.log(result);
+
+
+// ============================Reverse the Array of string=======================
+function ReverseString(nums) {
+    let n=nums.length
+let halfN=Math.floor(n/2);
+    for (let i = 0; i < halfN; i++) {
+        let temp =nums[i] ;
+
+            nums[i] = nums[n - 1 - i]
+            nums[n - 1 - i] = temp;
+
+        
     }
-    return x + 1;
+    return nums;
 }
 
-let arr = [1, 1, 1, 2, 2, 3, , 4, 5, 7, 7]
-let result = dublicateArr(arr)
-console.log(result);
+let arr = ["R", "A", "C", "H", "I", "T"]
+let result = ReverseString(arr)
+console.log(result)
