@@ -218,20 +218,40 @@ console.log(shiftAllZeros([3, 4, 6, 0, 6, 0, 3, 86, 0, 98])) */
 
 
 // ============================Reverse the Array of string=======================
-function ReverseString(nums) {
-    let n=nums.length
-let halfN=Math.floor(n/2);
-    for (let i = 0; i < halfN; i++) {
-        let temp =nums[i] ;
+// function ReverseString(nums) {
+//     let n = nums.length
+//     let halfN = Math.floor(n / 2);
+//     for (let i = 0; i < halfN; i++) {
+//         let temp = nums[i];
 
-            nums[i] = nums[n - 1 - i]
-            nums[n - 1 - i] = temp;
+//         nums[i] = nums[n - 1 - i]
+//         nums[n - 1 - i] = temp;
 
-        
+
+//     }
+//     return nums;
+// }
+
+// let arr1 = ["R", "A", "C", "H", "I", "T"]
+// let result = ReverseString(arr1)
+// console.log(result)
+
+
+//============================= buy the stock in the lowest price and sell it on maxprofit=================================
+function stockBuyAndSell(prices) {
+    let minProfit = prices[0];
+    let maxProfit = 0;
+    for (let i = 1; i < prices.length; i++) {
+        if (prices[i] - minProfit > maxProfit) {
+            maxProfit = prices[i] - minProfit;
+        }
+        else if (minProfit > prices[i]) {
+            minProfit = prices[i];
+        }
     }
-    return nums;
+    return maxProfit;
 }
 
-let arr = ["R", "A", "C", "H", "I", "T"]
-let result = ReverseString(arr)
-console.log(result)
+let arr = [1, 3, 5, 7, 2, 8, 10]
+let result1 = stockBuyAndSell(arr);
+console.log(result1);
