@@ -150,26 +150,26 @@ console.log(shiftAllZeros([3, 4, 6, 0, 6, 0, 3, 86, 0, 98])) */
 //         if (arr[i] > first) {
 //             second = first;
 //             first = arr[i];
-//         } else if (arr[i] > second && arr[i]!=first) {
+//         } else if (arr[i] > second && arr[i] != first) {
 //             second = arr[i];
 
 //         }
 
 //     }
 
-//       return second;
+//     return second;
 
 // }
 
-// let demoArray = [2, 3,66, 5, 12, 145, 145, 65]
-// let result = findSecondLargest(demoArray);
-// console.log(result);
+// let demoArray1 = [2, 3, 66, 5, 12, 145, 145, 65]
+// let result7 = findSecondLargest(demoArray1);
+// console.log(result7);
 
 //4. if array has only one element  then  how will you handle it and find seocnd largest
 
 // function findSecondLargest(arr) {
 
-//     if(arr.length<2){
+//     if (arr.length < 2) {
 //         return null;
 //     }
 //     let first = -Infinity;
@@ -179,20 +179,20 @@ console.log(shiftAllZeros([3, 4, 6, 0, 6, 0, 3, 86, 0, 98])) */
 //         if (arr[i] > first) {
 //             second = first;
 //             first = arr[i];
-//         } else if (arr[i] > second && arr[i]!=first) {
+//         } else if (arr[i] > second && arr[i] != first) {
 //             second = arr[i];
 
 //         }
 
 //     }
 
-//       return second;
+//     return second;
 
 // }
 
 // let demoArray = [10]
-// let result = findSecondLargest(demoArray);
-// console.log(result);
+// let result2 = findSecondLargest(demoArray);
+// console.log(result2);
 
 
 
@@ -212,9 +212,9 @@ console.log(shiftAllZeros([3, 4, 6, 0, 6, 0, 3, 86, 0, 98])) */
 //     return x + 1;
 // }
 
-// let arr = [1, 1, 1, 2, 2, 3, , 4, 5, 7, 7]
-// let result = dublicateArr(arr)
-// console.log(result);
+// let arr3 = [1, 1, 1, 2, 2, 3, 4, 5, 7, 7]
+// let result4 = dublicateArr(arr3)
+// console.log(result4);
 
 
 // ============================Reverse the Array of string=======================
@@ -238,20 +238,50 @@ console.log(shiftAllZeros([3, 4, 6, 0, 6, 0, 3, 86, 0, 98])) */
 
 
 //============================= buy the stock in the lowest price and sell it on maxprofit=================================
-function stockBuyAndSell(prices) {
-    let minProfit = prices[0];
-    let maxProfit = 0;
-    for (let i = 1; i < prices.length; i++) {
-        if (prices[i] - minProfit > maxProfit) {
-            maxProfit = prices[i] - minProfit;
-        }
-        else if (minProfit > prices[i]) {
-            minProfit = prices[i];
-        }
-    }
-    return maxProfit;
-}
+// function stockBuyAndSell(prices) {
+//     let minProfit = prices[0];
+//     let maxProfit = 0;
+//     for (let i = 1; i < prices.length; i++) {
+//         if (prices[i] - minProfit > maxProfit) {
+//             maxProfit = prices[i] - minProfit;
+//         }
+//         else if (minProfit > prices[i]) {
+//             minProfit = prices[i];
+//         }
+//     }
+//     return maxProfit;
+// }
 
-let arr = [1, 3, 5, 7, 2, 8, 10]
-let result1 = stockBuyAndSell(arr);
-console.log(result1);
+// let arr = [1, 3, 5, 7, 2, 8, 10]
+// let result1 = stockBuyAndSell(arr);
+// console.log(result1);
+
+
+
+
+// .......................Remove Zeroes.....................
+
+// Input: nums = [0,1,0,3,12]
+// Output: [1,3,12,0,0]
+
+
+
+
+// function removeZeroes(nums) {
+//     let x = 0;
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== 0) {
+//             nums[x] = nums[i];
+//             x++;
+//         }
+//     }
+
+
+//     for (let i = x; i < nums.length; i++) {
+//         nums[i] = 0;
+//     }
+//     return nums;
+// }
+// let arr4 = [0, 1, 0, 3, 12]
+// let result6 = removeZeroes(arr4)
+// console.log(result6);
