@@ -259,7 +259,7 @@ console.log(shiftAllZeros([3, 4, 6, 0, 6, 0, 3, 86, 0, 98])) */
 
 
 
-// .......................Remove Zeroes.....................
+// .......................move Zeroes.....................
 
 // Input: nums = [0,1,0,3,12]
 // Output: [1,3,12,0,0]
@@ -267,7 +267,7 @@ console.log(shiftAllZeros([3, 4, 6, 0, 6, 0, 3, 86, 0, 98])) */
 
 
 
-// function removeZeroes(nums) {
+// function moveZeroes(nums) {
 //     let x = 0;
 //     for (let i = 0; i < nums.length; i++) {
 //         if (nums[i] !== 0) {
@@ -282,28 +282,28 @@ console.log(shiftAllZeros([3, 4, 6, 0, 6, 0, 3, 86, 0, 98])) */
 //     }
 //     return nums;
 // }
-// let arr4 = [0, 1, 0, 3, 12]
-// let result6 = removeZeroes(arr4)
-// console.log(result6);
+// let arr9 = [0, 1, 0, 3, 12]
+// let result0=moveZeroes(arr9)
+// console.log(result0);
 
 
 // ====================max consecutive ones ===================
 
 
-const maxConsecutive = (nums) => {
-    let currentCount = 0;
-    let maxCount = 0;
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] == 1) {
-            currentCount++;
-        } else {
-            maxCount = Math.max(currentCount, maxCount);
-            currentCount=0;
-        }
-    }
-    return Math.max(currentCount, maxCount);
-}
+// const maxConsecutive = (nums) => {
+//     let currentCount = 0;
+//     let maxCount = 0;
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] == 1) {
+//             currentCount++;
+//         } else {
+//             maxCount = Math.max(currentCount, maxCount);
+//             currentCount=0;
+//         }
+//     }
+//     return Math.max(currentCount, maxCount);
+// }
 
-let arr4 = [0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0]
-let result6 = maxConsecutive(arr4)
-console.log(result6);
+// let arr4 = [0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0]
+// let result6 = maxConsecutive(arr4)
+// console.log(result6);
