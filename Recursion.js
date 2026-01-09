@@ -23,3 +23,40 @@ var addTwoNumbers = function(l1, l2) {
 
     return dummy.next;
 };
+
+
+
+
+
+
+
+
+// =============================Merge Two Sorted Lists======================
+
+
+var mergeTwoLists = function(list1, list2) {
+    // dummy node to simplify handling head
+    let dummy = new ListNode(0);
+    let current = dummy;
+
+    // while both lists have nodes
+    while (list1 !== null && list2 !== null) {
+        if (list1.val <= list2.val) {
+            current.next = list1;
+            list1 = list1.next;
+        } else {
+            current.next = list2;
+            list2 = list2.next;
+        }
+        current = current.next;
+    }
+
+    // attach the remaining list
+    if (list1 !== null) {
+        current.next = list1;
+    } else {
+        current.next = list2;
+    }
+
+    return dummy.next;
+};
