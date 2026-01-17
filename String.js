@@ -79,3 +79,32 @@ function checkDuplicate(str) {
 }
 
 checkDuplicate("Rachitta");
+
+
+// ===============remove all the sring paragraph================
+var reverseWords = function(s) {
+    // split by space
+    let words = s.split(" ");
+
+    // filter out empty strings
+    let filtered = [];
+    for (let i = 0; i < words.length; i++) {
+        if (words[i] !== "") {
+            filtered.push(words[i]);
+        }
+    }
+
+    // reverse words
+    let left = 0;
+    let right = filtered.length - 1;
+    while (left < right) {
+        let temp = filtered[left];
+        filtered[left] = filtered[right];
+        filtered[right] = temp;
+        left++;
+        right--;
+    }
+
+    // join with single space
+    return filtered.join(" ");
+};
