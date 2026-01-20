@@ -108,3 +108,35 @@ var reverseWords = function(s) {
     // join with single space
     return filtered.join(" ");
 };
+
+
+
+
+
+// Roman to Integer
+var romanToInt = function(s) {
+    const map = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000
+    };
+
+    let result = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        let curr = map[s[i]];
+        let next = map[s[i + 1]];
+
+        if (next && curr < next) {
+            result -= curr;
+        } else {
+            result += curr;
+        }
+    }
+
+    return result;
+};
