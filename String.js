@@ -140,3 +140,30 @@ var romanToInt = function(s) {
 
     return result;
 };
+
+
+
+// Submissions Detail -
+// Remove Palindromic Subsequences?
+
+
+var removePalindromeSub = function(s) {
+    // If string is empty, no steps needed
+    if (s.length === 0) return 0;
+
+    // Check if the string itself is a palindrome
+    let left = 0;
+    let right = s.length - 1;
+
+    while (left < right) {
+        if (s[left] !== s[right]) {
+            // Not a palindrome → need 2 steps
+            return 2;
+        }
+        left++;
+        right--;
+    }
+
+    // Whole string is a palindrome → 1 step
+    return 1;
+};
