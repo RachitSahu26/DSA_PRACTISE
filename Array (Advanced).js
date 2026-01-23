@@ -574,3 +574,24 @@ function majorityElement(nums) {
 // Time Complexity: O(n)
 // Space Complexity: O(1)
 
+// ===========================
+// Question:✅11 Container With Most Water
+// ============================
+
+
+var maxArea = function(height) {
+     let left = 0;
+  let right = height.length - 1;
+  let max = 0;
+
+  while (left < right) {
+    const area =
+      Math.min(height[left], height[right]) * (right - left);
+    max = Math.max(max, area);
+
+    if (height[left] < height[right]) left++;
+    else right--;
+  }
+
+  return max;
+};
