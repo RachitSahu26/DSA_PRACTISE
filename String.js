@@ -167,3 +167,111 @@ var removePalindromeSub = function(s) {
     // Whole string is a palindrome → 1 step
     return 1;
 };
+
+
+
+
+
+// ===================== 5 reverse the whole string paragraph========================
+var reverseWords = function (s) {
+    // split by space
+    let words = s.split(" ");
+
+    // filter out empty strings
+    let filtered = [];
+    for (let i = 0; i < words.length; i++) {
+        if (words[i] !== "") {
+            filtered.push(words[i]);
+        }
+    }
+
+    // reverse words
+    let left = 0;
+    let right = filtered.length - 1;
+    while (left < right) {
+        let temp = filtered[left];
+        filtered[left] = filtered[right];
+        filtered[right] = temp;
+        left++;
+        right--;
+    }
+
+    // join with single space
+    return filtered.join(" ");
+};
+
+
+
+// ============== 6 Length of Last Word===========
+
+// ---------- 1-approach--------
+
+var lengthOfLastWord = function (s) {
+    let n = s.length - 1;
+    while (n >= 0) {
+        if (s[n] === " ") {
+            --n;
+        } else {
+            break;
+        }
+    }
+    let count = 0;
+    while (n >= 0) {
+        if (s[n] != " ") {
+            --n;
+            ++count;
+        } else {
+            break;
+        }
+    }
+    return count;
+};
+
+// ---------- 2-approach--------
+var lengthOfLastWords = function (s) {
+    let n = s.length - 1;
+    let count = 0;
+
+    while (n >= 0) {
+        if (s[n] != " ") {
+            count++
+        } else if (count > 0) {
+            break;
+        }
+        --n;
+    }
+    return count;
+}
+
+
+// ============== 6 Find words that is containing words ===========
+
+
+// approach 1 using build in method of js
+var findWordsContaining = function (words, targetVal) {
+    let result = [];
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].includes(targetVal)) {
+            result.push(i);
+
+        }
+    }
+    return result;
+
+}
+
+// -----------approach 2----------
+
+var findWordsContaining = function (words, targetv) {
+    let res = []
+    for (let i = 0; i < words.length; i++) {
+        for (let j = 0; i < words[i].length; j++) {
+            if (words[i][j] === targetv) {
+                res.push[i];
+                break;
+            }
+        }
+    }
+    return res;
+
+}
