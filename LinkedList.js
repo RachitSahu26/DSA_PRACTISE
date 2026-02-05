@@ -153,3 +153,30 @@ const isPalindrome = (head) => {
   }
 }
 
+
+var mergeTwoLists = function(list1, list2) {
+    let dummy = new ListNode(-1); // fake starting node
+    let tail = dummy;             // tail will build the new list
+
+    // Step 1: Compare nodes from both lists
+    while (list1 !== null && list2 !== null) {
+        if (list1.val <= list2.val) {
+            tail.next = list1;    // attach list1 node
+            list1 = list1.next;   // move list1 forward
+        } else {
+            tail.next = list2;    // attach list2 node
+            list2 = list2.next;   // move list2 forward
+        }
+        tail = tail.next;         // move tail forward
+    }
+
+    // Step 2: Attach the remaining nodes (if any)
+    if (list1 !== null) {
+        tail.next = list1;
+    } else {
+        tail.next = list2;
+    }
+
+    // Step 3: Return the real head
+    return dummy.next;
+};
