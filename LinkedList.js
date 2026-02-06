@@ -177,6 +177,35 @@ var mergeTwoLists = function(list1, list2) {
         tail.next = list2;
     }
 
+
+
+
+  // =================Remove Nth Node From End of Linked List============
+
+var removeNthFromEnd = function(head, n) {
+    let dummy = new ListNode(0);
+    dummy.next = head;
+
+    let fast = dummy;
+    let slow = dummy;
+
+    // Move fast pointer n+1 steps ahead
+    for (let i = 0; i <= n; i++) {
+        fast = fast.next;
+    }
+
+    // Move both pointers until fast reaches null
+    while (fast !== null) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+
+    // Remove the nth node from end
+    slow.next = slow.next.next;
+
+    return dummy.next;
+};
     // Step 3: Return the real head
     return dummy.next;
 };
+
