@@ -289,3 +289,40 @@ var numJewelsInStones = function(jewels, stones) {
     }
     return count;
 };
+
+
+
+
+
+
+// ==================== 10 find the most frequent vowel and consonant==============
+
+var maxFreqSum = function (s) {
+    let map = {};
+    for (let i = 0; i < s.length; i++) {
+        if (!map[s[i]]) {
+            map[s[i]] = 1;
+        }
+        else {
+            ++map[s[i]];
+        }
+    }
+    let maxVowel = 0;
+    let maxConsonant = 0;
+    let vowel = ['a', 'e', 'i', 'o', 'u'];
+    for (let i = 0; i < s.length; i++) {
+        if (vowel.includes(s[i])) {
+            if (map[s[i]] > maxVowel) {
+                maxVowel = map[s[i]];
+            }
+        } else {
+            if (map[s[i]] > maxConsonant) {
+                maxConsonant = map[s[i]];
+            }
+        }
+
+    }
+    return maxVowel + maxConsonant;
+
+};
+
