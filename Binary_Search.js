@@ -57,6 +57,40 @@ var findDuplicate = function (nums) {
 
 let value = 15
 
+
+
+
+
+// find sqrt of the given number 
+// Input: x = 4
+// Output: 2
+// Explanation: The square root of 4 is 2, so we return 2.
+
+var mySqrt = function (x) {
+    if (x < 2) return x;
+
+    let left = 2;
+    let right = Math.floor(x / 2);
+
+    while (left <= right) {
+        let middle = Math.floor((left + right) / 2);
+
+        if (middle * middle === x) {
+            return middle;
+        }
+        else if (middle * middle > x) {
+            right = middle - 1;
+        }
+        else {
+            left = middle + 1;
+        }
+    }
+
+    return right; // floor of sqrt(x)
+};
+
+
 let result = binarSeach(arr, value);
 
 console.log(result)
+
