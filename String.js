@@ -357,3 +357,39 @@ var balancedStringSplit = function (s) {
     return count;
 
 };
+
+
+
+
+// ==================12 valid anagram============
+
+var isAnagram = function (s, t) {
+    if (s.length != t.length) {
+        return false;
+    }
+
+    let map = {};
+    for (let i = 0; i < s.length; i++) {
+
+        if (map[s[i]] === undefined) {
+            map[s[i]] = 1;
+        } else {
+            map[s[i]]++;
+        }
+    }
+
+    for (let j = 0; j < t.length; j++) {
+        if (map[t[j]] === undefined || map[t[j]] === 0) {
+
+
+            return false
+        }
+        else {
+            map[t[j]]--;
+        }
+    }
+
+
+    return true;
+
+}
