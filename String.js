@@ -435,3 +435,35 @@ var longestCommonPrefix = function(strs) {
 // ==================14 Longest balanced substring || ============
 
 
+
+
+
+
+
+
+
+// ==================15 group Anagram===============
+
+// Input: strs = ["eat","tea","tan","ate","nat","bat"]
+// Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+var groupAnagrams = function (strs) {
+    let map = {}
+
+    for (let i = 0; i < strs.length; i++) {
+        
+        let sortedStr = strs[i].split("").sort().join("");
+        if (!map[sortedStr]) {
+            map[sortedStr] = [strs[i]];
+        }
+        else {
+            map[sortedStr].push(strs[i]);
+        }
+
+    }
+
+    return [...Object.values(map)];
+
+};
+
+
