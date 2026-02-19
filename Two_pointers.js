@@ -214,3 +214,36 @@ var longestOnes = function(nums, k) {
 };
 
 
+
+
+
+// ======== 6.Subarray Product Less Than K=========
+// nums = [10, 5, 2, 6]
+// k = 100
+// Output = 8
+
+
+
+function numSubarrayProductLessThanK(nums, k) {
+  if (k <= 1) return 0;
+
+  let left = 0;
+  let product = 1;
+  let count = 0;
+
+  for (let right = 0; right < nums.length; right++) {
+    product *= nums[right];
+
+    while (product >= k) {
+      product /= nums[left];
+      left++;
+    }
+
+    count += right - left + 1;
+  }
+
+  return count;
+}
+
+
+
