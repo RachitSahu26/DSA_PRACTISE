@@ -247,3 +247,42 @@ function numSubarrayProductLessThanK(nums, k) {
 
 
 
+
+//==============7. Minimum Window Substring===============
+
+function minWindow(s, t) {
+  if (t.length > s.length) return "";
+
+  let need = new Map();
+  for (let ch of t) {
+    need.set(ch, (need.get(ch) || 0) + 1);
+  }
+
+  let left = 0;
+  let count = t.length;
+  let minLen = Infinity;
+  let start = 0;
+
+  for (let right = 0; right < s.length; right++) {
+    if (need.has(s[right])) {
+      if (need.get(s[right]) > 0) count--;
+      need.set(s[right], need.get(s[right]) - 1);
+    }
+
+    while (count === 0) {
+      if (right - left + 1 < minLen) {
+        minLen = right - left + 1;
+        start = left;
+      }
+
+      if (need.has(s[left])) {
+        need.set(s[left], need.get(s[left]) + 1);
+        if (need.get(s[left]) > 0) count++;
+      }
+      left++;
+    }
+  }
+
+  return minLen === Infinity ? "" : s.substring(start, start + minLen);
+}
+
