@@ -94,3 +94,61 @@ let result = binarSeach(arr, value);
 
 console.log(result)
 
+
+
+
+
+
+
+
+
+// ===============3. First Bad Version===============
+var solution = function(isBadVersion) {
+    /**
+     * @param {integer} n Total versions
+     * @return {integer} The first bad version
+     */
+   return function(n) {
+        let l = 1;
+        let r = n;
+        while (l < r) {
+            let m = l + Math.floor((r - l) / 2);
+            if (!isBadVersion(m)) {
+                l = m + 1;
+            } else {
+                r = m;
+            }
+        }
+        return r;
+    };
+};
+
+
+// ================= 4. Search in Rotated Sorted Array===============
+
+var search = function(arr, target) {
+    let l = 0;
+    let r = arr.length - 1;
+    while (l <= r) {
+        let m = l + Math.floor((r - l) / 2);
+        if (target === arr[m]) {
+            return m;
+        }
+        
+        if (arr[l] <= arr[m]) {
+            if (target >= arr[l] && target < arr[m]) {
+                r = m - 1;
+            } else {
+                l = m + 1;
+            }
+        } else {
+            if (target > arr[m] && target <= arr[r]) {
+                l = m + 1;
+            } else {
+                r = m - 1;
+            }
+        }
+    }
+    return -1;
+};
+
