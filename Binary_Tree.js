@@ -134,4 +134,80 @@ var postOrderTraves = function (root) {
 
 
 
-// =================4. Level Order Traversal - Queue - BFS============
+// =================4. Level Order Traversal - with Recursion - BFS============
+
+// dfs(node, level)
+
+// 1. create level array if needed
+// 2. add node value
+// 3. go left (level+1)
+// 4. go right (level+1)
+var levelOrderTraversal = (root) => {
+    if (!root) return [];
+    let ans = [];
+    let traversal = (curr, level) => {
+        if (!ans[level]) ans[level] = [];
+        ans[level].push(curr.val);
+        curr.left && traversal(curr.left, level + 1);
+        curr.right && traversal(curr.right, level + 1);
+    }
+    traversal(root, 0)
+
+
+    return ans;
+}
+
+// =============5. maximum depth of binary tree=====
+
+
+var maxDepth = (root) => {
+    if (!root) return 0;
+
+    let maxDepth = 0;
+    let traversal = (curr, depth) => {
+        maxDepth = Math.max(maxDepth, depth);
+
+        curr.left && traversal(curr.left, depth + 1);
+        curr.right && traversal(curr.right, depth + 1);
+    }
+    traversal(root, 1)
+
+    return maxDepth;
+}
+
+
+// ============== 6.path sum of binary tree======
+
+
+var hasPathSum = function (root, targetSum) {
+    if (!root) return false;
+    let ans = false;
+    let traverse = (curr, currSum) => {
+        let newSum = currSum + curr.val;
+        if (!curr.left && !curr.right) {
+            if (newSum === targetSum) {
+                ans = ans || true;
+            }
+        }
+        curr.left && traverse(curr.left, newSum);
+        curr.right && traverse(curr.right, newSum);
+    }
+    traverse(root, 0);
+    return ans;
+};
+
+// ============== 7.symmetric tree ======
+
+
+var isSymmetric = function (root) {
+    let isMirror = (left, right) => {
+        if (!left && !right) return true;
+        if (!left || !right) return false;
+        return left.val === right.val &&
+            isMirror(left.left, right.right) &&
+            isMirror(left.right, right.left);
+    }
+    return isMirror(root.left, root.right);
+};
+
+
