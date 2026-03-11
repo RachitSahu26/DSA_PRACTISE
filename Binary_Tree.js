@@ -223,3 +223,67 @@ var invertTree = function (root) {
     invertTree(root.right);
     return root;
 };
+
+
+//  ===================9.same binary tree============
+var isSameTree = function (p, q) {
+    if (!p && !q) return true;
+    if (!p || !q) return false;
+    return p.val === q.val &&
+        isSameTree(p.left, q.left) &&
+        isSameTree(p.right, q.right)
+
+};
+
+
+//  ===================9.Balanced binary tree===========
+
+
+
+
+
+//  ===================9.Diameter of Binary tree===========
+
+var diameterOfBinaryTree = function (root) {
+    let maxDiameter = 0;
+
+ let  findDepth=(curr)=>{
+        if (!curr) return 0
+        let leftDepth = findDepth(curr.left);
+        let rightDepth = findDepth(curr.right);
+        let currDiameter = leftDepth + rightDepth;
+        maxDiameter=Math.max(currDiameter,maxDiameter);
+        return 1+Math.max(leftDepth,rightDepth)
+    }
+    findDepth(root)
+    return maxDiameter;
+};
+
+
+// ============10. Binary Tree Zigzag Level Order Traversal=============
+var zigzagLevelOrder = function (root) {
+    if(!root) return []
+    let ans = [];
+    let level = 0;
+    let q = [root];
+    while (q.length) {
+        let levelArr = [];
+        let levelSize = q.length;
+        for (let i = 0; i < levelSize; i++) {
+            let curr = q.shift();
+            if (level % 2 === 0) {
+                levelArr.push(curr.val);
+            } else {
+                levelArr.unshift(curr.val);
+            }
+
+            if (curr.left) q.push(curr.left);
+            if (curr.right) q.push(curr.right);
+        }
+        ans.push(levelArr);
+        level++;
+
+
+    }
+    return ans;
+};
