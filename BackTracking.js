@@ -31,3 +31,26 @@ var combine = function (n, k) {
 };
 
 
+// ====================Permutation=========
+
+
+var permutation = (arr) => {
+    let result = [];
+    let n = arr.length;
+    let backTrack = (path) => {
+
+        if(path.length===n){
+            result.push([...push]);
+           
+        }
+        for (let i = 0; i < n; i++) {
+            if (!path.includes(arr[i])) {
+                path.push(arr[i])
+                backTrack(path);
+                path.pop()
+            }
+        }
+    }
+    backTrack([])
+    return result;
+}
