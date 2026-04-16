@@ -54,3 +54,38 @@ var permutation = (arr) => {
     backTrack([])
     return result;
 }
+
+
+
+var permuteUnique = function (arr) {
+    let result = [];
+
+    arr.sort((a, b) => a - b);
+
+    const backTrack = (path, choice) => {
+        if (path.length === arr.length) {
+            result.push([...path]);
+            return;
+        }
+
+        for (let i = 0; i < choice.length; i++) {
+            // Skip duplicates
+            if (i > 0 && choice[i] === choice[i - 1]) {
+                continue;
+            }
+
+            path.push(choice[i]);
+
+            backTrack(
+                path,
+                [...choice.slice(0, i), ...choice.slice(i + 1)]
+            );
+
+            path.pop();
+        }
+    };
+
+    backTrack([], arr);
+
+    return result;
+};
